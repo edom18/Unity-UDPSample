@@ -1,10 +1,9 @@
-// Assets/Scripts/Networking/TokenBucket.cs
 using System;
 using UnityEngine;
 
 public class TokenBucket
 {
-    private double _ratePerSec;   // 1秒あたりの補充量（=目標pps）
+    private double _ratePerSec; // 1 秒あたりの補充量（=目標pps）
     private double _tokens;
     private readonly double _burst;
     private double _last;
@@ -21,10 +20,15 @@ public class TokenBucket
 
     public bool Consume(double cost)
     {
-        var now = Now();
+        double now = Now();
         _tokens = Math.Min(_burst, _tokens + (now - _last) * _ratePerSec);
         _last = now;
-        if (_tokens >= cost) { _tokens -= cost; return true; }
+        if (_tokens >= cost)
+        {
+            _tokens -= cost;
+            return true;
+        }
+
         return false;
     }
 

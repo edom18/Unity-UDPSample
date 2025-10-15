@@ -300,6 +300,9 @@ MonoBehaviour:
   jitterMinMs: 2
   jitterMaxMs: 8
   anycastSlots: 16
+  enableDiagPing: 0
+  logSends: 1
+  logSendErrors: 1
 --- !u!4 &352517462
 Transform:
   m_ObjectHideFlags: 0
@@ -519,6 +522,8 @@ MonoBehaviour:
   deviceId: client-01
   serverHost: 127.0.0.1
   serverPort: 9000
+  logReceives: 1
+  logAcks: 0
 --- !u!4 &918341735
 Transform:
   m_ObjectHideFlags: 0
